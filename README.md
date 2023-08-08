@@ -12,5 +12,5 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 ## Overall Framework
 <img width="733" alt="image" src="https://github.com/dongguanting/Structured-Knowledge-aware-Pretraining-for-KBQA/assets/60767110/c63e55fb-0cee-474c-8dbf-392498ad24e6">
 
-## Main Result
-<img width="185" alt="image" src="https://github.com/dongguanting/Structured-Knowledge-aware-Pretraining-for-KBQA/assets/60767110/62adf57f-0cd7-44ce-9eb0-4979a550dcae">
+
+Our Code and Dataset will be released soon!
