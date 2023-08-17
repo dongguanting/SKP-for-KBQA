@@ -14,7 +14,7 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 
 ## Result
 
-**Main Result**
+### Main Result
 | Model                                                    |  Hits@1    | 
 | --------------------- | :------:   | 
 | GraftNet                                                 |  69.5     | 
@@ -29,7 +29,9 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 | UniK-QA∗                                                 | 77.9 |
 | SKP (ours)                                               | **79.6** | 
 
-**In-Context Learning Result For LLMs**
+
+### In-Context Learning Result For LLMs
+
 Since there were very few open source large models when the article was written (2022.12), we now supplement the SKP framework with the results of **In Context Learning** when the LLMs is used as a Reader. Due to the limitation of the Max sequence length of the LLMs, for the **Topk** documents retrieved by the retriever, we select the documents with the highest semantic similarity and truncate them with 2048 tokens as the knowledge prompting for reader (about 5 documents)
 
 
