@@ -33,7 +33,7 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 Since there were very few open source large models when the article was written (2022.12), we now supplement the SKP framework with the results of **In Context Learning** when the LLMs is used as a Reader. Due to the limitation of the Max sequence length of the LLMs, for the **Topk** documents retrieved by the retriever, we select the documents with the highest semantic similarity and truncate them with 2048 tokens as the knowledge prompting for reader (about 5 documents)
 
 
-| Model                                                    |  Clean     | 
+| Model                                                    |  Hits@1     | 
 | -------------------------------------------------------- | :------:   | 
 | SKP(ChatGPT)                                              |  71.9     | 
 | SKP(LLAMA)                                                |  coming soon   | 
