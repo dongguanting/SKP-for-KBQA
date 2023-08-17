@@ -44,7 +44,7 @@ Since there were very few open source large models when the article was written 
 | SKP(ChatGLM2)                                               |  coming soon     | 
 
 
-Our Code and Dataset will be released soon!
+**Our Code and Dataset will be released soon!**
 
 
 
