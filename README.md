@@ -184,9 +184,10 @@ Our Final Result：
 
 
 
-## Result
+## Result:
 
 ### Main Result
+
 | Model                                                    |  Hits@1    | 
 | --------------------- | :------:   | 
 | GraftNet                                                 |  69.5     | 
