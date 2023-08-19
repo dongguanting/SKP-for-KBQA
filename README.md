@@ -1,7 +1,7 @@
 # Bridging the KB-Text Gap: Leveraging Structured Knowledge-aware Pre-training for KBQA
 
 
-## Overview
+## 🎥 OverviewOverview
 This is the repository for our work **SKP**, which is recieved by **CIKM 2023**.
 
 ## Brief introduction
@@ -9,15 +9,15 @@ We propose a **S**tructured **K**nowledge-aware **P**re-training method (**SKP**
 In downstream KBQA task, we further design an efficient linearization strategy and an interval attention mechanism, which assist the model to better encode complex subgraphs and shield the interference of irrelevant subgraphs during reasoning respectively.
 Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, especially the significant improvement in subgraph retrieval (+4.08% H@10).
 
-## Overall Framework
+## 🍯 Overall Framework
 <img width="733" alt="image" src="https://github.com/dongguanting/Structured-Knowledge-aware-Pretraining-for-KBQA/assets/60767110/c63e55fb-0cee-474c-8dbf-392498ad24e6">
 
-## Quick Start
+## 🎯 Quick Start
 
 Our work is built on the [UniK-QA](https://github.com/facebookresearch/UniK-QA) framework.
 
 
-## Dependencies
+### Dependencies
 
 General Setup Environment:
 - Python 3
@@ -31,7 +31,7 @@ cd ./KBQA/DPR-main/
 pip3 install -r requirements.txt
 ```
 
-## Data Preprocessing
+### Data Preprocessing
 
 ```
 wget https://dl.fbaipublicfiles.com/UniK-QA/data.tar.xz
@@ -56,7 +56,7 @@ python webqsp_preprocess_complex2.py
 Our code is thoroughly commented! The final output will consist of three TSV files for encoding.
 
 
-## Pretraining DPR：
+### Pretraining DPR：
 
 We use linearized subgraphs to perform structure knowledg aware pretraining on the processed TSV files.
 
@@ -89,7 +89,7 @@ bash train-contrastive.sh
 
 
 
-## Training DPR：
+### Training DPR：
 Due to the pretraining process, we first load the checkpoint for structured pretraining, and then train DPR:
 
 ```
@@ -100,7 +100,7 @@ bash train_encoder1.sh
 The detailed information can be referred to the GitHub repository of DPR. [DPR](https://github.com/facebookresearch/DPR)
 
 
-## Encoding TSV into embedding files:
+### Encoding TSV into embedding files:
 
 Using the trained DPR, encode the three TSV files into embedding vector files. The file "all_relations.tsv" is split into 100 parts for encoding, and this process takes a long time.
 
@@ -119,7 +119,7 @@ out_dir is the path to the output directory for the encoded embeddings.
 
 
 
-## Preprocessing the input data for FID:
+### Preprocessing the input data for FID:
 
 Using FAISS, filter out the top-k subgraphs corresponding to each question from the generated subgraph embeddings in the previous step.
 
@@ -134,7 +134,7 @@ python fid_preprocess.py
 ```
 
 
-## Training and Testing with FiD:
+### Training and Testing with FiD:
 
 Next, the input to the [FiD](https://github.com/facebookresearch/FiD) reader is created for each question using the most relevant relations retrieved by DPR.Finally, a FiD model can be trained using the SKP input. 
 
@@ -184,7 +184,7 @@ Our Final Result：
 
 
 
-## Result:
+## 📋 Result:
 
 ### Main Result
 
