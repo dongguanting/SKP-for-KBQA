@@ -66,7 +66,7 @@ We use linearized subgraphs to perform structure knowledg aware pretraining on t
 bash random_sample_complex1.sh
 ```
 
-2. For DPR pretraining, we provide three modes:
+2. For DPR pretraining, we provide 3 modes:
 
 - Joint pretraining for Mask Language Modeling and Contrastive Learning
 
