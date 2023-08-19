@@ -145,7 +145,7 @@ If you want to reproduce the results for inference directly, our FID inputs and 
 
 Training FiD
 
-```
+‘’‘
 python -u train.py \
   --train_data_path {data dir}/webqsp_train.json \
   --dev_data_path {data dir}/webqsp_dev.json \
