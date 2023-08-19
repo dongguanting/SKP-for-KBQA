@@ -145,7 +145,7 @@ If you want to reproduce the results for inference directly, our FID inputs and 
 
 Training FiD
 
-‘’‘
+```
 python -u train.py \
   --train_data_path {data dir}/webqsp_train.json \
   --dev_data_path {data dir}/webqsp_dev.json \
@@ -159,11 +159,11 @@ python -u train.py \
   --checkpoint_dir {save path} \
   --eval_freq 250 \
   --eval_print_freq 250
-‘’‘
+```
 
 Inference FiD
 
-‘’‘
+```
 python test.py \
   --model_path {checkpoint path} \
   --test_data_path {data path}/webqsp_test.json \
@@ -172,15 +172,15 @@ python test.py \
   --n_context 100 \
   --name {checkpoint name} \
   --checkpoint_dir {base dir}/FiD-snapshot_nov_2020 \
-‘’‘
+```
 
 Our Final Result：
 
-‘’‘
+```
 2022-12-26 11:43:51 | WARNING | __main__ | 0, total 1639 -- average = 0.796
 2022-12-26 11:43:51 | INFO | __main__ | total number of example 1639
 2022-12-26 11:43:51 | INFO | __main__ | EM 0.795812
-’‘’
+```
 
 
 
