@@ -13,72 +13,173 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 <img width="733" alt="image" src="https://github.com/dongguanting/Structured-Knowledge-aware-Pretraining-for-KBQA/assets/60767110/c63e55fb-0cee-474c-8dbf-392498ad24e6">
 
 ## Quick Start
-基于UniKQA框架搭建
-https://github.com/facebookresearch/UniK-QA
+
+Our work is built on the [UniK-QA](https://github.com/facebookresearch/UniK-QA) framework.
+
 
 ## Dependencies
 
+General Setup Environment:
 - Python 3
 - [NumPy](http://www.numpy.org/)
 - [PyTorch](http://pytorch.org/) (currently tested on version 1.6.0)
 - [Transformers](http://huggingface.co/transformers/) (version 3.0.2, unlikely to work with a different version)
 
-1. 数据处理
+DPR Setup Environment:
+```
+cd ./KBQA/DPR-main/
+pip3 install -r requirements.txt
+```
+
+## Data Preprocessing
 
 ```
 wget https://dl.fbaipublicfiles.com/UniK-QA/data.tar.xz
 tar -xvf data.tar.xz
 ```
 
-![image-20230414175039929](/Users/dongguanting/Library/Application Support/typora-user-images/image-20230414175039929.png)
+Prepare the above data, and we provide two linearization methods:
+- Normal linearization：
 
-准备好以上数据，我们提供两种处理方式
-1. 普通线性化
-
+```
+cd ./data_process/
 python webqsp_preprocess.py
+```
 
-2. 合并复杂子图的线性化：
+- Linearization of merging complex subgraphs：
 
+```
+cd ./data_process/
 python webqsp_preprocess_complex2.py
+```
 
-这些代码均注释详细！最终输出三种tsv数据待编码。
-
-2. DPR预训练：
+Our code is thoroughly commented! The final output will consist of three TSV files for encoding.
 
 
-我们用线性化的子图，对处理好的TSV数据进行结构化知识感知预训练：
+## Pretraining DPR：
 
-首先从预处理好的TSV数据中随机抽取100w条：
+We use linearized subgraphs to perform structure knowledg aware pretraining on the processed TSV files.
+
+1. First, we randomly extract 1 million subgraphs from the preprocessed TSV files:
+
+```
 bash random_sample_complex1.sh
+```
 
-对于DPR的预训练，我们提供三种模式：
-1. 对数据进行MLM+对比学习的预训练：
-cd ./bert_pretraining
+2. For DPR pretraining, we provide three modes:
+
+- Joint pretraining for Mask Language Modeling and Contrastive Learning
+
+```
+cd ./DPR_pretraining/bash/
 bash train_mlm_contrastive_mask.sh
-2. 只做MLM：
-cd ./bert_pretraining
+```
+
+- Only Mask Language Modeling:
+
+```
 bash train-mlm.sh
-3. 只做对比学习：
-cd ./bert_pretraining
+```
+
+- Only Contrastive Learning
+
+```
 bash train-contrastive.sh
+```
 
 
 
+## Training DPR：
+Due to the pretraining process, we first load the checkpoint for structured pretraining, and then train DPR:
 
-3. 训练DPR：
+```
+cd ./DPR-main/
+bash train_encoder1.sh
+```
 
-​	加载DPR预训练的checkpoint，运行train_encoder1.sh
+详细可参考[DPR](https://github.com/facebookresearch/DPR)
 
-4. 编码tsv成embedding
 
-使用脚本gen_all_relation_emb1.sh - gen_all_relation_emb10.sh，以及gen_condense_hyper_relation_emb.sh，gen_condense_relation_emb.sh来编码三种tsv
+## Encoding TSV into embedding files:
 
-5. 预处理FID的数据
+Using the trained DPR, encode the three TSV files into embedding vector files. The file "all_relations.tsv" is split into 100 parts for encoding, and this process takes a long time.
 
-分别运行dpr_inference.py生成DPR output的数据，再用fid_preprocess.py进行进一步筛选，最终生成FID的输入数据
+```
+cd ./DPR-main/
+for id in {1..10..1} 
+   bash gen_all_relation_emb${id}.sh
+bash gen_condense_hyper_relation_emb.sh
+bash gen_condense_hyper_relation_emb.sh
+```
 
-6. 最后，可以使用 UniK-QA 输入训练 FiD 模型。 我们训练有素的 FiD 检查点可以在 [此处](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz) 下载。 （我们的模型是在 2020 年底训练的，因此您可能需要查看旧版本的 FiD。）运行test_origin.sh脚本
+In each bash command:
+WEBQSP_DIR is your base path.
+model_dir is the path to your DPR checkpoint.
+out_dir is the path to the output directory for the encoded embeddings.
 
+
+
+## Preprocessing the input data for FID:
+
+Using FAISS, filter out the top-k subgraphs corresponding to each question from the generated subgraph embeddings in the previous step.
+
+```
+python dpr_inference.py
+```
+
+After generating the DPR output data, further filtering and conversion into the format compatible with FID can be done using fid_preprocess.py.
+
+```
+python fid_preprocess.py
+```
+
+
+## Training and Testing with FiD:
+
+Next, the input to the [FiD](https://github.com/facebookresearch/FiD) reader is created for each question using the most relevant relations retrieved by DPR.Finally, a FiD model can be trained using the SKP input. 
+
+If you want to reproduce the results for inference directly, our FID inputs and model have been made publicly available. 
+- Our FID input can be downloaded [here](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz).
+- Our trained FiD checkpoint can be downloaded [here](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz). (Our model was trained in late 2020, so you may need to check out an older version of FiD.)
+
+
+Training FiD
+
+```
+python -u train.py \
+  --train_data_path {data dir}/webqsp_train.json \
+  --dev_data_path {data dir}/webqsp_dev.json \
+  --model_size large \
+  --per_gpu_batch_size 1 \
+  --n_context 100 \
+  --max_passage_length 200 \
+  --total_step 100000 \
+  --name {checkpoint name} \
+  --model_path {loading backbone model path} \
+  --checkpoint_dir {save path} \
+  --eval_freq 250 \
+  --eval_print_freq 250
+‘’‘
+
+Inference FiD
+
+‘’‘
+python test.py \
+  --model_path {checkpoint path} \
+  --test_data_path {data path}/webqsp_test.json \
+  --model_size large \
+  --per_gpu_batch_size 4 \
+  --n_context 100 \
+  --name {checkpoint name} \
+  --checkpoint_dir {base dir}/FiD-snapshot_nov_2020 \
+‘’‘
+
+Our Final Result：
+‘’‘
+2022-12-26 11:43:51 | WARNING | __main__ | 0, total 1639 -- average = 0.796
+2022-12-26 11:43:51 | INFO | __main__ | total number of example 1639
+2022-12-26 11:43:51 | INFO | __main__ | EM 0.795812
+’‘’
 
 
 
