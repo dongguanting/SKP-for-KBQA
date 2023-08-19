@@ -97,7 +97,7 @@ cd ./DPR-main/
 bash train_encoder1.sh
 ```
 
-详细可参考[DPR](https://github.com/facebookresearch/DPR)
+The detailed information can be referred to the GitHub repository of DPR. [DPR](https://github.com/facebookresearch/DPR)
 
 
 ## Encoding TSV into embedding files:
