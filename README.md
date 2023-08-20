@@ -143,7 +143,7 @@ If you want to reproduce the results for inference directly, our FID inputs and 
 - Our trained FiD checkpoint can be downloaded [here](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz). (Our model was trained in late 2020, so you may need to check out an older version of FiD.)
 
 
-Training FiD
+Train FiD
 
 ```
 python -u train.py \
