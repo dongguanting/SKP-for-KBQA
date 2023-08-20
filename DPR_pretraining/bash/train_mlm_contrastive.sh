@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=1 python -u ./bert_pretraining/main_bert_mlm_cl_mask.py --do_train --batch_size 8 --epoch 10 --train_data /mnt/dolphinfs/hdd_pool/docker/user/hadoop-aipnlp/dongguanting/bert_pretraining/data/random_100w.txt --model_save_dir /mnt/dolphinfs/hdd_pool/docker/user/hadoop-aipnlp/dongguanting/bert_pretraining_checkpoints/random_100w_epoch10_ml+cl_training_mask

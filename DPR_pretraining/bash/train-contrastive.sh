@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python -u main_bert_constra.py --do_train --batch_size 32 --epoch 8 --train_data /mnt/dolphinfs/hdd_pool/docker/user/hadoop-aipnlp/dongguanting/bert_pretraining/data/random_100w.txt --model_save_dir /mnt/dolphinfs/hdd_pool/docker/user/hadoop-aipnlp/dongguanting/bert_pretraining_checkpoints/CL_0.2_0.3_100w
