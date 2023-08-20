@@ -210,7 +210,7 @@ Since there were very few open source large models when the article was written 
 
 | Model                                                    |  Hits@1     | 
 | -------------------------------------------------------- | :------:   | 
-| SKP(ChatGPT)                                              |  71.9     | 
+| SKP(ChatGPT)                                              |  71.2     | 
 | SKP(LLAMA)                                                |  coming soon   | 
 | SKP(LLAMA2)                                                |  coming soon     | 
 | SKP(ChatGLM)                                                |  coming soon     | 
