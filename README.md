@@ -66,6 +66,8 @@ We use linearized subgraphs to perform structure knowledg aware pretraining on t
 bash random_sample_complex1.sh
 ```
 
+- Our 1 million subgraphs can be directly downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=drive_link).
+
 2. For DPR pretraining, we provide 3 modes:
 
 - Joint pretraining for **Mask Language Modeling** and **Contrastive Learning**
@@ -139,8 +141,8 @@ python fid_preprocess.py
 Next, the input to the [FiD](https://github.com/facebookresearch/FiD) reader is created for each question using the most relevant relations retrieved by DPR.Finally, a FiD model can be trained using the SKP input. 
 
 If you want to reproduce the results for inference directly, our FID inputs and model have been made publicly available. 
-- Our FID input can be downloaded [here](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz).
-- Our trained FiD checkpoint can be downloaded [here](https://dl.fbaipublicfiles.com/UniK-QA/fid_checkpoint.tar.xz). (Our model was trained in late 2020, so you may need to check out an older version of FiD.)
+- Our FID input can be downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=drive_link).
+- Our trained FiD checkpoint can be downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=drive_link). (Our model was trained in late 2020, so you may need to check out an older version of FiD.)
 
 
 Train FiD
