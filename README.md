@@ -113,9 +113,9 @@ bash gen_condense_hyper_relation_emb.sh
 ```
 
 In each bash command:
-WEBQSP_DIR is your base path.
-model_dir is the path to your DPR checkpoint.
-out_dir is the path to the output directory for the encoded embeddings.
+- WEBQSP_DIR is your base path.
+- model_dir is the path to your DPR checkpoint.
+- out_dir is the path to the output directory for the encoded embeddings.
 
 
 
