@@ -135,6 +135,10 @@ After generating the DPR output data, further filtering and conversion into the 
 python fid_preprocess.py
 ```
 
+Our Subgraph Retrieval results are shown here：
+![image](https://github.com/dongguanting/SKP-for-KBQA/assets/60767110/fad13037-4b5c-46f5-abd6-424f1bc0d731)
+
+
 
 ### Training and Testing with FiD:
 
