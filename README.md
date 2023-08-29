@@ -32,6 +32,7 @@ Detailed experiments and analyses on WebQSP verify the effectiveness of SKP, esp
 
 Our work is built on the [UniK-QA](https://github.com/facebookresearch/UniK-QA) framework.
 
+To **reproduce quickly**, you can directly use the FID input and FID checkpoint provided in section **Training and Testing with FiD** for prediction.
 
 ### Dependencies
 
