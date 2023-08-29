@@ -2,7 +2,23 @@
 
 
 ## 🎥 Overview
-This is the repository for our work **SKP**, which is recieved by **CIKM 2023**.
+This repository contains the open-sourced official implementation of the paper:
+
+[Bridging the KB-Text Gap: Leveraging Structured Knowledge-aware Pre-training for KBQA](https://arxiv.org/pdf/2308.14436.pdf) (CIKM 2023 Short Paper).
+
+
+If you find this repo helpful, please cite the following paper:
+
+```bibtex
+@misc{dong2023bridging,
+      title={Bridging the KB-Text Gap: Leveraging Structured Knowledge-aware Pre-training for KBQA}, 
+      author={Guanting Dong and Rumei Li and Sirui Wang and Yupeng Zhang and Yunsen Xian and Weiran Xu},
+      year={2023},
+      eprint={2308.14436},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
 
 ## Introduction
 We propose a **S**tructured **K**nowledge-aware **P**re-training method (**SKP**). In the pre-training stage, we introduce two novel structured knowledge-aware tasks, guiding the model to effectively learn the implicit relationship and better representations of complex subgraphs. 
