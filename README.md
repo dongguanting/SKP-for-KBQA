@@ -7,7 +7,8 @@ This repository contains the open-sourced official implementation of the paper:
 
 [Bridging the KB-Text Gap: Leveraging Structured Knowledge-aware Pre-training for KBQA](https://arxiv.org/pdf/2308.14436.pdf) (CIKM 2023 Short Paper).
 
-Some of the code is from [UniK-QA](https://github.com/facebookresearch/UniK-QA), thanks to Barlas Oguz and Xilun Chen.
+Our work is based on [UniK-QA](https://github.com/facebookresearch/UniK-QA), thanks to Barlas Oguz and Xilun Chen.
+
 If you find this repo helpful, please cite the following paper:
 
 ```bibtex
