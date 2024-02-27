@@ -164,7 +164,7 @@ Our Subgraph Retrieval results are shown here：
 Next, the input to the [FiD](https://github.com/facebookresearch/FiD) reader is created for each question using the most relevant relations retrieved by DPR.Finally, a FiD model can be trained using the SKP input. 
 
 If you want to reproduce the results for inference directly, our FID inputs and model have been made publicly available. 
-- Our FID input can be downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=drive_link).
+- Our FID input can be downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=sharing).
 - Our trained FiD checkpoint can be downloaded [here](https://drive.google.com/drive/folders/1UnWOB0zApioYOJ4GuS3JKSWAkkeDXxQv?usp=drive_link). (Our model was trained in late 2020, so you may need to check out an older version of FiD.)
 
 
