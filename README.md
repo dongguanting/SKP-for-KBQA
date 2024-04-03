@@ -228,7 +228,7 @@ Our Final Result：
 | SKP (ours)                                               | **79.6** | 
 
 
-### In-Context Learning Result For LLMs
+### In-Context Learning Result For LLMs with SKP
 
 Since there were very few open source large models when the article was written (2022.12), we now supplement the SKP framework with the results of **In Context Learning** when the LLMs is used as a Reader. Due to the limitation of the Max sequence length of the LLMs, for the **Topk** documents retrieved by the retriever, we select the documents with the highest semantic similarity and truncate them with 2048 tokens as the knowledge prompting for reader (about 5 documents)
 
@@ -241,9 +241,8 @@ Since there were very few open source large models when the article was written 
 | SKP(Llama2-7B 0shot)                                                |  18.2    | 
 
 
-### Supervised Finetuning Result For LLMs 
+### Supervised Finetuning Result For LLMs with SKP
 
-SFT
 
 | Model                                                    |  Hits@1     | 
 | -------------------------------------------------------- | :------:   | 
