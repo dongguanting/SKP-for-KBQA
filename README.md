@@ -237,8 +237,8 @@ Since there were very few open source large models when the article was written 
 | -------------------------------------------------------- | :------:   | 
 | SKP(ChatGPT)                                              |  65.2     | 
 | SKP(GPT4)                                              |  71.3     | 
-| SKP(Llama-7B 0shot)                                                |  16.8   | 
-| SKP(Llama2-7B 0shot)                                                |  18.2    | 
+| SKP(Llama-7B)                                                |  16.8   | 
+| SKP(Llama2-7B)                                                |  18.2    | 
 
 
 ### Supervised Finetuning Result For LLMs with SKP
@@ -249,7 +249,7 @@ Since there were very few open source large models when the article was written 
 | SKP(Llama2-7B SFT)                                                |  72    | 
 | SKP(Llama2-13B SFT)                                                |  75.9    | 
 | SKP(Mistral-7B SFT)                                                |  65.8    | 
-| SKP(Qwen1.5-7B)                                                |  70.7     |
+| SKP(Qwen1.5-7B SFT)                                                |  70.7     |
 
 
 
