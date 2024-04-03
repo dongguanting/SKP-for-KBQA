@@ -236,10 +236,9 @@ Since there were very few open source large models when the article was written 
 | Model                                                    |  Hits@1     | 
 | -------------------------------------------------------- | :------:   | 
 | SKP(ChatGPT)                                              |  65.2     | 
-| SKP(LLAMA)                                                |  16.8   | 
-| SKP(LLAMA2)                                                |  18.2    | 
-| SKP(ChatGLM)                                                |  coming soon     | 
-| SKP(ChatGLM2)                                               |  coming soon     | 
+| SKP(GPT4)                                              |  71.3     | 
+| SKP(Llama-7B 0shot)                                                |  16.8   | 
+| SKP(Llama2-7B 0shot)                                                |  18.2    | 
 
 
 ### Supervised Finetuning Result For LLMs 
@@ -248,10 +247,10 @@ SFT
 
 | Model                                                    |  Hits@1     | 
 | -------------------------------------------------------- | :------:   | 
-| SKP(LLAMA)                                                |  coming soon   | 
-| SKP(LLAMA2)                                                |  coming soon     | 
-| SKP(ChatGLM)                                                |  coming soon     | 
-| SKP(ChatGLM2)                                               |  coming soon     | 
+| SKP(Llama2-7B SFT)                                                |  72    | 
+| SKP(Llama2-13B SFT)                                                |  75.9    | 
+| SKP(Mistral-7B SFT)                                                |  65.8    | 
+| SKP(Qwen1.5-7B)                                                |  70.7     |
 
 
 
